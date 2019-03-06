@@ -1,9 +1,13 @@
+%This code solves the Decentralized Control Problem in Example IV.b.
+%The code requires YALMIP parser for Linear Matrix Inequality, freely avaialbe at https://yalmip.github.io. 
+%Any SDP solver can be used. Here we used SDPT3 freely avaialbe at https://github.com/SQLP/SDPT3
+
 clear all;
 
 A=[0 0 0; 0 0.1 0; 0 0 0];
 
 S=[1 0 1; 0 1 1];
-B=S'
+B=S';
 n=max(size(A));
 m=min(size(B));
 r1=sdpvar(1,1,'symmetric');
@@ -24,7 +28,8 @@ Y23=sdpvar(1,1,'symmetric');
 
 Y33=sdpvar(1,1,'symmetric');
 
-Y=[Y11 0 Y13; 0 Y22 Y23; 0 0 Y33]
+Y=[Y11 0 Y13; 0 Y22 Y23; 0 0 Y33];
+
 P=sdpvar(3,3,'symmetric');
 
 M=[zeros(n,n), P; P, zeros(n,n)]+[(A*Y+B*R), (A*Y+B*R);-Y, -Y]...
