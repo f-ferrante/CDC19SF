@@ -1,4 +1,4 @@
-%This code solves the Decentralized Control Problem in Example IV.b.
+%This code solves the Decentralized Control Problem in Example IV.A.
 %The code requires YALMIP parser for Linear Matrix Inequality, freely avaialbe at https://yalmip.github.io. 
 %Any SDP solver can be used. Here we used SDPT3 freely avaialbe at https://github.com/SQLP/SDPT3
 
